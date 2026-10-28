@@ -1,36 +1,40 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# UpCareer Web Results UI
 
-## Getting Started
+Next.js (TypeScript + Tailwind CSS) frontend for the **RAYW4** FYP proposal:
 
-First, run the development server:
+> Matching Through Play: A Session-Aware Two-Tower Recommendation System for SEN Employment
+
+## Pages
+
+| Route | Description |
+| --- | --- |
+| `/login` | Sign-in screen (matches proposal mockup) |
+| `/applicant/outcome` | Top 20 recommended jobs table |
+| `/applicant/cmf-score` | Draft CMF score report (24 competencies + 8 attitudes) |
+| `/applicant/demographic` | Applicant demographic summary |
+| `/employer` | Employer view placeholder |
+
+## Demo login
+
+- Any username **not** starting with `emp` → Applicant UI
+- Username starting with `emp` (e.g. `emp_techcorp`) → Employer placeholder
+- Any non-empty password is accepted (mock auth via `localStorage`)
+
+## Run locally
 
 ```bash
+cd frontend
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000).
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Stack
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- Next.js App Router
+- TypeScript
+- Tailwind CSS v4
+- lucide-react icons
 
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Mock job/CMF data lives in `src/lib/mock-data.ts` and will later be replaced by FastAPI responses.
